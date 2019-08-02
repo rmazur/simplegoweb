@@ -22,7 +22,7 @@ func main() {
 	// the relative path). We wrap it in a call to template.Must() which handles any errors 
   // and halts if there are fatal errors
 
-	templates := template.Must(template.ParseFiles("templates/welcome-template.html"))
+	templates := template.Must(template.ParseFiles("./templates/welcome-template.html"))
 
 	//Our HTML comes with CSS that go needs to provide when we run the app. Here we tell go to create
 	// a handle that looks in the static directory, go then uses the "/static/" as a url that our
