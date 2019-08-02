@@ -73,3 +73,5 @@ else
     popd
 
 fi
+
+rm -Rf /tmp/src
