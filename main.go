@@ -3,10 +3,7 @@ import (
 	"net/http"
 	"fmt"
 	"os"
-	"log"
 	"time"
-	"path"
-	"runtime"
 	"html/template"
 )
 
@@ -22,26 +19,11 @@ func main() {
 	//We shall get the name of the user as a query parameter from the URL
 	welcome := Welcome{"Anonymous", time.Now().Format(time.Stamp)}
 
-	_, filename, _, ok := runtime.Caller(0)
-	if !ok {
-		fmt.Println("No caller information")
-	  }
-
-	dir, err := os.Getwd()
-	  if err != nil {
-		  log.Fatal(err)
-	  }
-	fmt.Println("Executable directory is: "+dir)
-
-	approot := os.Getenv("APP_ROOT")
-	fmt.Println("APP_ROOT directory is: "+approot)
-
 	//We tell Go exactly where we can find our html file. We ask Go to parse the html file (Notice
 	// the relative path). We wrap it in a call to template.Must() which handles any errors 
   // and halts if there are fatal errors
 
-	templates := template.Must(template.ParseFiles(path.Dir(filename)+"/templates/welcome-template.html"))
-	fmt.Println("Path where template is located: " + path.Dir(filename)+"/templates/welcome-template.html")
+	templates := template.Must(template.ParseFiles(os.Getenv("APP_ROOT")+"/templates/welcome-template.html"))
 
 	//Our HTML comes with CSS that go needs to provide when we run the app. Here we tell go to create
 	// a handle that looks in the static directory, go then uses the "/static/" as a url that our
@@ -49,7 +31,7 @@ func main() {
 
 	http.Handle("/static/", //final url can be anything
 		http.StripPrefix("/static/",
-			http.FileServer(http.Dir(path.Dir(filename)+"/static")))) //Go looks in the relative static directory first, then matches it to a
+			http.FileServer(http.Dir(os.Getenv("APP_ROOT")+"/static")))) //Go looks in the relative static directory first, then matches it to a
 			//url of our choice as shown in http.Handle("/static/"). 
       //This url is what we need when referencing our css files
 			//once the server begins. Our html code would therefore be <link rel="stylesheet"  href="/static/stylesheet/...">
