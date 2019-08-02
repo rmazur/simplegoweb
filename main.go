@@ -33,6 +33,12 @@ func main() {
 	  }
 	fmt.Println("Executable directory is: "+dir)
 
+	approot, err := os.Getenv("APP_ROOT")
+	  if err != nil {
+		  log.Fatal(err)
+	  }
+	fmt.Println("APP_ROOT directory is: "+approot)
+
 	//We tell Go exactly where we can find our html file. We ask Go to parse the html file (Notice
 	// the relative path). We wrap it in a call to template.Must() which handles any errors 
   // and halts if there are fatal errors
