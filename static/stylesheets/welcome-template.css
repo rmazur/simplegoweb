@@ -20,7 +20,7 @@ height: 100vh;
     align-items: center;
 }​
 
-img {
+.site-logo {
     position: relative;
     display: block;
     margin-left: auto;
@@ -33,6 +33,14 @@ img {
     top: 0;
     left: 0;
     width: 100%;
-    height: 185px;
+    height: 40%;
     background-color: #DC3232;
+}
+
+.titi img {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
