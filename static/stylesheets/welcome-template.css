@@ -1,31 +1,6 @@
 body {
-    /* min-height:100%;
-    background-image: url("/static/stylesheets/background.jpg"), linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.3));
-    background-blend-mode: overlay;
-    background-size:cover; */
     background-image: url("/static/stylesheets/UnderConstruction.svg");
     background-size: cover;
- }
- 
- .welcome {
-font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
-font-size: 3rem;
-color: aliceblue;
-}
- 
-.center {
-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}​
-
-.site-logo {
-    position: relative;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
 }
 
 .top-header {
@@ -45,4 +20,17 @@ height: 100vh;
     margin-left: auto;
     margin-right: auto;
     width: 20%;
+}
+
+.welcome {
+    font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
+    font-size: 3rem;
+    color: aliceblue;
+}
+
+.center {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
