@@ -4,7 +4,7 @@ body {
     background-blend-mode: overlay;
     background-size:cover; */
     background-image: url("/static/stylesheets/UnderConstruction.svg");
-    background-size: contain;
+    background-size: cover;
  }
  
  .welcome {
