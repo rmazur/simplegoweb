@@ -2,6 +2,7 @@ package main
 import (
 	"net/http"
 	"fmt"
+	"os"
 	"time"
 	"path"
 	"runtime"
@@ -24,6 +25,12 @@ func main() {
 	if !ok {
 		fmt.Println("No caller information")
 	  }
+
+	dir, err := os.Getwd()
+	  if err != nil {
+		  log.Fatal(err)
+	  }
+	fmt.Println("Executable directory is: "+dir)
 
 	//We tell Go exactly where we can find our html file. We ask Go to parse the html file (Notice
 	// the relative path). We wrap it in a call to template.Must() which handles any errors 
