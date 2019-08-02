@@ -3,8 +3,6 @@ import (
 	"net/http"
 	"fmt"
 	"time"
-	"path"
-	"runtime"
 	"html/template"
 )
 
@@ -20,16 +18,11 @@ func main() {
 	//We shall get the name of the user as a query parameter from the URL
 	welcome := Welcome{"Anonymous", time.Now().Format(time.Stamp)}
 
-	_, filename, _, ok := runtime.Caller(0)
-	if !ok {
-		fmt.Println("No caller information")
-	  }
-
 	//We tell Go exactly where we can find our html file. We ask Go to parse the html file (Notice
 	// the relative path). We wrap it in a call to template.Must() which handles any errors 
   // and halts if there are fatal errors
 
-	templates := template.Must(template.ParseFiles(path.Dir(filename)+"/templates/welcome-template.html"))
+	templates := template.Must(template.ParseFiles("templates/welcome-template.html"))
 
 	//Our HTML comes with CSS that go needs to provide when we run the app. Here we tell go to create
 	// a handle that looks in the static directory, go then uses the "/static/" as a url that our
