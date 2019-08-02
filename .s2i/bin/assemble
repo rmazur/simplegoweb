@@ -52,8 +52,8 @@ if [[ `go list -f {{.Incomplete}}` == "true" ]]; then
 
         mv $GOPATH/bin/* /opt/app-root/gobinary
 
-        mv /tmp/src/static /opt/app-root
-        mv /tmp/src/templates /opt/app-root
+        cp -R /tmp/src/static $APP_ROOT
+        cp -R /tmp/src/templates $APP_ROOT
 
         popd
 
@@ -67,8 +67,8 @@ else
 
     go build -o /opt/app-root/gobinary
 
-    mv /tmp/src/static /opt/app-root
-    mv /tmp/src/templates /opt/app-root
+    cp -R /tmp/src/static $APP_ROOT
+    cp -R /tmp/src/templates $APP_ROOT
 
     popd
 
